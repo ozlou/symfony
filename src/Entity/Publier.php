@@ -13,28 +13,16 @@ class Publier
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\OneToOne(inversedBy: 'IdPublier', targetEntity: Annonce::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private $IdAnnonce;
 
     #[ORM\OneToOne(inversedBy: 'IdPublier', targetEntity: User::class, cascade: ['persist', 'remove'])]
     private $IdUser;
 
+    #[ORM\OneToOne(targetEntity: Annonce::class, cascade: ['persist', 'remove'])]
+    private $IdAnnonce;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdAnnonce(): ?Annonce
-    {
-        return $this->IdAnnonce;
-    }
-
-    public function setIdAnnonce(Annonce $IdAnnonce): self
-    {
-        $this->IdAnnonce = $IdAnnonce;
-
-        return $this;
     }
 
     public function getIdUser(): ?User
@@ -45,6 +33,18 @@ class Publier
     public function setIdUser(?User $IdUser): self
     {
         $this->IdUser = $IdUser;
+
+        return $this;
+    }
+
+    public function getIdAnnonce(): ?Annonce
+    {
+        return $this->IdAnnonce;
+    }
+
+    public function setIdAnnonce(?Annonce $IdAnnonce): self
+    {
+        $this->IdAnnonce = $IdAnnonce;
 
         return $this;
     }

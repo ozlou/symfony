@@ -19,8 +19,9 @@ class Photo
     #[ORM\Column(type: 'string', length: 255)]
     private $Path;
 
-    #[ORM\ManyToOne(targetEntity: Annonce::class, inversedBy: 'Photos')]
-    private $IdAnnonce;
+    #[ORM\ManyToOne(targetEntity: Annonce::class, inversedBy: 'Imgs')]
+    private $annonce;
+
 
     public function getId(): ?int
     {
@@ -51,14 +52,14 @@ class Photo
         return $this;
     }
 
-    public function getIdAnnonce(): ?Annonce
+    public function getAnnonce(): ?Annonce
     {
-        return $this->IdAnnonce;
+        return $this->annonce;
     }
 
-    public function setIdAnnonce(?Annonce $IdAnnonce): self
+    public function setAnnonce(?Annonce $annonce): self
     {
-        $this->IdAnnonce = $IdAnnonce;
+        $this->annonce = $annonce;
 
         return $this;
     }

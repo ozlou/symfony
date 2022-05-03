@@ -15,54 +15,41 @@ class Annonce
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'integer')]
-    private $IdAnnonce;
-
     #[ORM\Column(type: 'string', length: 255)]
     private $Title;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $Description;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'string', length: 255)]
     private $Price;
 
-    #[ORM\Column(type: 'date')]
+    #[ORM\Column(type: 'datetime')]
     private $CreatedAt;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $City;
 
-    #[ORM\OneToMany(mappedBy: 'IdAnnonce', targetEntity: Photo::class)]
-    private $Photos;
+    #[ORM\OneToMany(mappedBy: 'annonce', targetEntity: Photo::class)]
+    private $Imgs;
 
-    #[ORM\OneToOne(inversedBy: 'IdAnnonce', targetEntity: Vehicule::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(targetEntity: Vehicule::class, cascade: ['persist', 'remove'])]
     private $IdVehicule;
-
-    #[ORM\OneToOne(mappedBy: 'IdAnnonce', targetEntity: Publier::class, cascade: ['persist', 'remove'])]
-    private $IdPublier;
-
 
     public function __construct()
     {
-        $this->Photos = new ArrayCollection();
+        $this->Imgs = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdAnnonce(): ?int
+    public function getUser(): ?User
     {
-        return $this->IdAnnonce;
-    }
-
-    public function setIdAnnonce(int $IdAnnonce): self
-    {
-        $this->IdAnnonce = $IdAnnonce;
-
-        return $this;
+        return $this->User;
     }
 
     public function getTitle(): ?string
@@ -89,12 +76,12 @@ class Annonce
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPrice(): ?string
     {
         return $this->Price;
     }
 
-    public function setPrice(int $Price): self
+    public function setPrice(string $Price): self
     {
         $this->Price = $Price;
 
@@ -125,42 +112,30 @@ class Annonce
         return $this;
     }
 
-    public function getAnnonce(): ?self
-    {
-        return $this->annonce;
-    }
-
-    public function setAnnonce(?self $annonce): self
-    {
-        $this->annonce = $annonce;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Photo>
      */
-    public function getPhotos(): Collection
+    public function getImgs(): Collection
     {
-        return $this->Photos;
+        return $this->Imgs;
     }
 
-    public function addPhoto(Photo $photo): self
+    public function addImg(Photo $img): self
     {
-        if (!$this->Photos->contains($photo)) {
-            $this->Photos[] = $photo;
-            $photo->setIdAnnonce($this);
+        if (!$this->Imgs->contains($img)) {
+            $this->Imgs[] = $img;
+            $img->setAnnonce($this);
         }
 
         return $this;
     }
 
-    public function removePhoto(Photo $photo): self
+    public function removeImg(Photo $img): self
     {
-        if ($this->Photos->removeElement($photo)) {
+        if ($this->Imgs->removeElement($img)) {
             // set the owning side to null (unless already changed)
-            if ($photo->getIdAnnonce() === $this) {
-                $photo->setIdAnnonce(null);
+            if ($img->getAnnonce() === $this) {
+                $img->setAnnonce(null);
             }
         }
 
@@ -178,21 +153,4 @@ class Annonce
 
         return $this;
     }
-
-    public function getIdPublier(): ?Publier
-    {
-        return $this->IdPublier;
-    }
-
-    public function setIdPublier(Publier $IdPublier): self
-    {
-        // set the owning side of the relation if necessary
-        if ($IdPublier->getIdAnnonce() !== $this) {
-            $IdPublier->setIdAnnonce($this);
-        }
-
-        $this->IdPublier = $IdPublier;
-
-        return $this;
-    }  
 }

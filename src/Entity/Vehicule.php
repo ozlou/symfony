@@ -35,8 +35,6 @@ class Vehicule
     #[ORM\JoinColumn(nullable: false)]
     private $type;
 
-    #[ORM\OneToOne(mappedBy: 'IdVehicule', targetEntity: Annonce::class, cascade: ['persist', 'remove'])]
-    private $IdAnnonce;
 
     public function getId(): ?int
     {
@@ -123,28 +121,6 @@ class Vehicule
     public function setType(?Type $type): self
     {
         $this->type = $type;
-
-        return $this;
-    }
-
-    public function getIdAnnonce(): ?Annonce
-    {
-        return $this->IdAnnonce;
-    }
-
-    public function setIdAnnonce(?Annonce $IdAnnonce): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($IdAnnonce === null && $this->IdAnnonce !== null) {
-            $this->IdAnnonce->setIdVehicule(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($IdAnnonce !== null && $IdAnnonce->getIdVehicule() !== $this) {
-            $IdAnnonce->setIdVehicule($this);
-        }
-
-        $this->IdAnnonce = $IdAnnonce;
 
         return $this;
     }
