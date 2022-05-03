@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce - {{ annonce.title }}{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1>{{ annonce.title }}</h1>
+        <p>Descrption : {{ annonce.description }}</p>
+        <p>{{ annonce.price }}$</p>
+        <p>Locate At : {{ annonce.city }}</p>
+    </div>
+{% endblock %}

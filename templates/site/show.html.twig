@@ -1,0 +1,359 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<h2>All Annonce</h2>
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <img src="https://public.carjager.com/content/2020/03/21161940/Barchetta-01.jpg" alt="rover" />
+      </div>
+      <div class="card-body">
+        <span class="tag tag-teal">{{type[1].typeofvehicle}}</span>
+        <h4>
+            <a href="{{ path('vehicle_detail', {'id': annonces[1].id}) }}">{{ annonces[1].title }}</a>
+        </h4>
+        <h5 class="price">{{annonces[1].price}}$</h1>
+        <div class="card-desc">
+          Year : {{vehicle[1].year}} <br>
+          KM : {{vehicle[1].km}} <br>
+          Carburant : {{vehicle[1].carburant}} <br>
+          Puissance : {{vehicle[1].puissance}} cv <br>
+        </div>
+        <p><button>Add to Cart</button></p>
+        <div class="user">
+          <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+          <div class="user-info">
+            <h7>{{user[1].UserName}}</h7>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="https://autoline.lu/img/s/automobile-voiturette-de-golf-Marshell-DG-C2-2-8---1632920157871578490_big--21092915555753765800.jpg" alt="ballons" />
+      </div>
+      <div class="card-body">
+        <span class="tag tag-teal">{{type[2].typeofvehicle}}</span>
+        <h4>
+            <a href="{{ path('vehicle_detail', {'id': annonces[2].id}) }}">{{ annonces[2].title }}</a>
+        </h4>
+        <h5 class="price">{{annonces[2].price}}$</h5>
+        <div class="card-desc">
+          Year : {{vehicle[2].year}} <br>
+          KM : {{vehicle[2].km}} <br>
+          Carburant : {{vehicle[2].carburant}} <br>
+          Puissance : {{vehicle[2].puissance}} cv <br>
+        </div>
+        <p><button>Add to Cart</button></p>
+        <div class="user">
+          <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+          <div class="user-info">
+            <h7>{{user[2].UserName}}</h7>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="https://sf2.autoplus.fr/wp-content/uploads/autoplus/2021/06/84-maybach-57s-xenatec-coupe-1-750x410.jpg" alt="city" />
+      </div>
+      <div class="card-body">
+        <span class="tag tag-pink">{{type[3].typeofvehicle}}</span>
+        <h4>
+            <a href="{{ path('vehicle_detail', {'id': annonces[3].id}) }}">{{ annonces[3].title }}</a>
+        </h4>
+        <h5 class="price">{{annonces[4].price}}$</h5>
+        <div class="card-desc">
+          Year : {{vehicle[3].year}} <br>
+          KM : {{vehicle[3].km}} <br>
+          Carburant : {{vehicle[3].carburant}} <br>
+          Puissance : {{vehicle[3].puissance}} cv <br>
+        </div>
+        <p><button>Add to Cart</button></p>
+        <div class="user">
+          <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+          <div class="user-info">
+            <h7>{{user[3].UserName}}</h7>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+          <img src="https://jtgeek.com/wp-content/uploads/Luxgen5-front-650.jpg" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-purple">{{type[4].typeofvehicle}}</span>
+          <h4>
+            <a href="{{ path('vehicle_detail', {'id': annonces[4].id}) }}">{{ annonces[4].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[4].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[4].year}} <br>
+            KM : {{vehicle[4].km}} <br>
+            Carburant : {{vehicle[4].carburant}} <br>
+            Puissance : {{vehicle[4].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[4].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Artega_GT.JPG" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-purple">{{type[5].typeofvehicle}}</span>
+          <h4>
+            <a href="{{ path('vehicle_detail', {'id': annonces[5].id}) }}">{{ annonces[5].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[5].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[5].year}} <br>
+            KM : {{vehicle[5].km}} <br>
+            Carburant : {{vehicle[5].carburant}} <br>
+            Puissance : {{vehicle[5].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[5].Username}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://www.rueducommerce.fr/media/produits/peg-perego/img//voiture-electrique-peg-perego-polaris-ranger-rzr-24v-green-shadow-1989976-23370439_1140x1140.jpg" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[6].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[6].id}) }}">{{ annonces[6].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[6].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[6].year}} <br>
+            KM : {{vehicle[6].km}} <br>
+            Carburant : {{vehicle[6].carburant}} <br>
+            Puissance : {{vehicle[6].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[6].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/98-04_Cadillac_Seville.jpg" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[7].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[7].id}) }}">{{ annonces[7].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[7].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[7].year}} <br>
+            KM : {{vehicle[7].km}} <br>
+            Carburant : {{vehicle[7].carburant}} <br>
+            Puissance : {{vehicle[7].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[7].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Venturi_300_Atlantique_3.4_front.jpg" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[8].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[8].id}) }}">{{ annonces[8].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[8].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[8].year}} <br>
+            KM : {{vehicle[8].km}} <br>
+            Carburant : {{vehicle[8].carburant}} <br>
+            Puissance : {{vehicle[8].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[8].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://autoline.lu/img/s/automobile-voiturette-de-golf-Marshell-DG-C2-2-8---1632920157871578490_big--21092915555753765800.jpg" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[9].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[9].id}) }}">{{ annonces[9].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[9].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[9].year}} <br>
+            KM : {{vehicle[9].km}} <br>
+            Carburant : {{vehicle[9].carburant}} <br>
+            Puissance : {{vehicle[9].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://www.mini.fr/content/dam/MINI/common/Range/2nd-lci/f56/explore/mini-f56-cgi-2nd-wide.jpg.asset.1611704108124.jpg" alt="user" />
+            <div class="user-info">
+              <h7>{{user[9].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/%2786_Plymouth_Caravelle_Salon_--_Front.jpg/1200px-%2786_Plymouth_Caravelle_Salon_--_Front.jpg" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[10].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[10].id}) }}">{{ annonces[10].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[10].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[10].year}} <br>
+            KM : {{vehicle[10].km}} <br>
+            Carburant : {{vehicle[10].carburant}} <br>
+            Puissance : {{vehicle[10].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[10].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Soueast_Lioncel_China_2012-05-20.JPG" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[11].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[11].id}) }}">{{ annonces[11].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[11].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[11].year}} <br>
+            KM : {{vehicle[11].km}} <br>
+            Carburant : {{vehicle[11].carburant}} <br>
+            Puissance : {{vehicle[11].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[11].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/VW_Polo_beats_%28VI%29_%E2%80%93_f_03032019_%28exposure_adjusted%29.jpg" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[12].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[12].id}) }}">{{ annonces[12].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[12].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[12].year}} <br>
+            KM : {{vehicle[12].km}} <br>
+            Carburant : {{vehicle[12].carburant}} <br>
+            Puissance : {{vehicle[12].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[12].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://upload.wikimedia.org/wikipedia/en/2/2d/Front_left_of_car.jpg" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[13].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[13].id}) }}">{{ annonces[13].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[13].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[13].year}} <br>
+            KM : {{vehicle[13].km}} <br>
+            Carburant : {{vehicle[13].carburant}} <br>
+            Puissance : {{vehicle[13].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[13].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="https://images.unsplash.com/photo-1562911791-c7a97b729ec5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEzNzYzNn0?utm_source=dictionnaire&utm_medium=referral" alt="ballons" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{type[14].typeofvehicle}}</span>
+          <h4>
+              <a href="{{ path('vehicle_detail', {'id': annonces[14].id}) }}">{{ annonces[14].title }}</a>
+          </h4>
+          <h5 class="price">{{annonces[14].price}}$</h5>
+          <div class="card-desc">
+            Year : {{vehicle[14].year}} <br>
+            KM : {{vehicle[14].km}} <br>
+            Carburant : {{vehicle[14].carburant}} <br>
+            Puissance : {{vehicle[14].puissance}} cv <br>
+          </div>
+          <p><button>Add to Cart</button></p>
+          <div class="user">
+            <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="user" />
+            <div class="user-info">
+              <h7>{{user[14].UserName}}</h7>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

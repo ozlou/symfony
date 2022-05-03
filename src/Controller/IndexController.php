@@ -2,20 +2,44 @@
 
 namespace App\Controller;
 
+
+use App\Entity\Annonce;
+use App\Repository\AnnonceRepository;
+use App\Repository\TypeRepository;
+use App\Repository\UserRepository;
+use App\Repository\VehicleRepository;
+use Doctrine\DBAL\Types\TypeRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Mailer\MailerInterface;
 
 class IndexController extends AbstractController
 {
-    #[Route('/', name: 'app_index')]
-    public function index(MailerInterface $mailer): Response
+    /** 
+     * @Route("/", name="app_index")
+     */
+    public function list(AnnonceRepository $annonceRepository, TypeRepository $typeRepository, UserRepository $userRepository,VehicleRepository $vehicleRepository): Response
     {
-        
+        $annonces = $annonceRepository->findAll();
+        $types = $typeRepository->findAll();
+        $user = $userRepository->findAll();
+        $vehicles = $vehicleRepository->findAll();
+
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'page home',
+            'annonces' => $annonces,
+            'type' => $types,
+            'user'=> $user,
+            'vehicle'=>$vehicles,
+        ]);
+    }
+
+    /** 
+     * @Route("/annonces/{id}", name="vehicle_detail")
+     */
+    public function item(Annonce $annonce): Response
+    {
+        return $this->render('site/detail.html.twig', [
+            'annonce' => $annonce,
         ]);
     }
 }

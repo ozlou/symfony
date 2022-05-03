@@ -2,17 +2,42 @@
 
 namespace App\Controller;
 
+use App\Entity\Annonce;
+use App\Repository\AnnonceRepository;
+use App\Repository\TypeRepository;
+use App\Repository\UserRepository;
+use App\Repository\VehicleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AnnonceController extends AbstractController
 {
-    #[Route('/annonce', name: 'app_annonce')]
-    public function index(): Response
+    /** 
+     * @Route("/annonces", name="annonces_list")
+     */
+    public function list(AnnonceRepository $annonceRepository, TypeRepository $typeRepository, UserRepository $userRepository,VehicleRepository $vehicleRepository): Response
     {
-        return $this->render('annonce/index.html.twig', [
-            'controller_name' => 'AnnonceController',
+        $annonces = $annonceRepository->findAll();
+        $types = $typeRepository->findAll();
+        $user = $userRepository->findAll();
+        $vehicles = $vehicleRepository->findAll();
+
+        return $this->render('site/show.html.twig', [
+            'annonces' => $annonces,
+            'type' => $types,
+            'user'=> $user,
+            'vehicle'=>$vehicles,
+        ]);
+    }
+
+    /** 
+     * @Route("/annonces/{id}", name="annonce_item")
+     */
+    public function item(Annonce $annonce): Response
+    {
+        return $this->render('site/detail.html.twig', [
+            'annonce' => $annonce,
         ]);
     }
 }

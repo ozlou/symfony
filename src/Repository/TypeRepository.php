@@ -8,7 +8,7 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
-/**
+/
  * @extends ServiceEntityRepository<Type>
  *
  * @method Type|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,12 +18,12 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TypeRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Type::class);
+        parent::construct($registry, Type::class);
     }
 
-    /**
+    /
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -35,7 +35,7 @@ class TypeRepository extends ServiceEntityRepository
         }
     }
 
-    /**
+    /
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -47,10 +47,10 @@ class TypeRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
+    // /
     //  * @return Type[] Returns an array of Type objects
-    //  */
-    /*
+    //  /
+    /
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('t')
@@ -62,9 +62,9 @@ class TypeRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+    /
 
-    /*
+    /
     public function findOneBySomeField($value): ?Type
     {
         return $this->createQueryBuilder('t')

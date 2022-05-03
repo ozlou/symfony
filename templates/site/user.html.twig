@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile User{% endblock %}
+
+{% block body %}
+
+    <dic class="example-wrapper">
+        <ul>
+            {% for user in users %}
+                <h4>{{ user.username }}</h4>
+                <div>{{ user.phone }}</div>
+            {% else %}
+                <li>Aucune Utilisateur trouvés</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

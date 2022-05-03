@@ -4,14 +4,45 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {# Run composer require symfony/webpack-encore-bundle to start using Symfony UX #}
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.css%22%3E
         {% block stylesheets %}
+            <link href="css/styles.css" rel="stylesheet" />
         {% endblock %}
 
+
+        <script src="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.js%22%3E</script>
         {% block javascripts %}
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header>
+            <nav class="navbar shadow-1 primary">
+              <a href="/" class="navbar-brand">CarsUy</a>
+              <div class="wrap">
+                <div class="search">
+                   <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                   <button type="submit" class="searchButton">
+                     <i class="fa fa-search"></i>
+                  </button>
+                </div>
+             </div>
+              <div class="navbar-menu ml-auto">
+                <a class="navbar-link" href="/">Home</a>
+                <a class="navbar-link" href="/annonces">Annonces</a>
+                <a class="navbar-link" href="/register">Sign Up</a>
+                <a class="navbar-link" href="/user">Profile</a>
+              </div>
+            </nav>
+          </header>
+
+          <main>
+            {% block body %}{% endblock %}
+          </main>
+
+          <footer class="footer primary">
+            Copyright © 2022 - CarsUy / Symfo-Project
+          </footer>
     </body>
 </html>

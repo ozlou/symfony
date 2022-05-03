@@ -8,7 +8,7 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
-/**
+/
  * @extends ServiceEntityRepository<Photo>
  *
  * @method Photo|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,12 +18,12 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class PhotoRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Photo::class);
+        parent::construct($registry, Photo::class);
     }
 
-    /**
+    /
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -35,7 +35,7 @@ class PhotoRepository extends ServiceEntityRepository
         }
     }
 
-    /**
+    /
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -47,10 +47,10 @@ class PhotoRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
+    // /
     //  * @return Photo[] Returns an array of Photo objects
-    //  */
-    /*
+    //  /
+    /
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('p')
@@ -62,9 +62,9 @@ class PhotoRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+    /
 
-    /*
+    /
     public function findOneBySomeField($value): ?Photo
     {
         return $this->createQueryBuilder('p')

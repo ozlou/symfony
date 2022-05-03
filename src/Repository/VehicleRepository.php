@@ -2,32 +2,33 @@
 
 namespace App\Repository;
 
-use App\Entity\Vehicule;
+use App\Entity\Type;
+use App\Entity\Vehicle;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Vehicule>
+ * @extends ServiceEntityRepository<Vehicle>
  *
- * @method Vehicule|null find($id, $lockMode = null, $lockVersion = null)
- * @method Vehicule|null findOneBy(array $criteria, array $orderBy = null)
- * @method Vehicule[]    findAll()
- * @method Vehicule[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Vehicle|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Vehicle|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Vehicle[]    findAll()
+ * @method Vehicle[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class VehiculeRepository extends ServiceEntityRepository
+class VehicleRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Vehicule::class);
+        parent::__construct($registry, Vehicle::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Vehicule $entity, bool $flush = true): void
+    public function add(Vehicle $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +40,7 @@ class VehiculeRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Vehicule $entity, bool $flush = true): void
+    public function remove(Vehicle $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -47,8 +48,22 @@ class VehiculeRepository extends ServiceEntityRepository
         }
     }
 
+    public function findOneByIdJoinedToType(int $typeId): ?Type
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT vehicle.type_id, type.id
+            FROM App\Entity\Vehicle type_id
+            INNER JOIN vehicle.type_id type.id
+            WHERE vehicle.type_id = :type.id'
+        )->setParameter('id', $typeId);
+
+        return $query->getOneOrNullResult();
+    }
+
     // /**
-    //  * @return Vehicule[] Returns an array of Vehicule objects
+    //  * @return Vehicle[] Returns an array of Vehicle objects
     //  */
     /*
     public function findByExampleField($value)
@@ -65,7 +80,7 @@ class VehiculeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Vehicule
+    public function findOneBySomeField($value): ?Vehicle
     {
         return $this->createQueryBuilder('v')
             ->andWhere('v.exampleField = :val')
